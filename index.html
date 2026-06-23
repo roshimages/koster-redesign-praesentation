@@ -93,11 +93,11 @@
   <div class="ba">
     <div>
       <div class="vlabel old">✕ VORHER — kosterag.ch</div>
-      <video src="clips/old-home.webm" autoplay muted loop playsinline></video>
+      <video autoplay muted loop playsinline preload="auto"><source src="clips/old-home.mp4" type="video/mp4"><source src="clips/old-home.webm" type="video/webm"></video>
     </div>
     <div>
       <div class="vlabel new">✓ NACHHER — neue Website</div>
-      <video src="clips/new-home.webm" autoplay muted loop playsinline></video>
+      <video autoplay muted loop playsinline preload="auto"><source src="clips/new-home.mp4" type="video/mp4"><source src="clips/new-home.webm" type="video/webm"></video>
     </div>
   </div>
   <ul class="imp">
@@ -120,11 +120,11 @@
       <li>Erfasst Notfall UND geplantes Projekt</li>
     </ul>
   </div>
-  <div><video src="clips/new-wizard.webm" autoplay muted loop playsinline></video></div>
+  <div><video autoplay muted loop playsinline preload="auto"><source src="clips/new-wizard.mp4" type="video/mp4"><source src="clips/new-wizard.webm" type="video/webm"></video></div>
 </div></div></section>
 
 <section class="block"><div class="wrap reveal"><div class="split rev">
-  <div><video src="clips/new-60jahre.webm" autoplay muted loop playsinline></video></div>
+  <div><video autoplay muted loop playsinline preload="auto"><source src="clips/new-60jahre.mp4" type="video/mp4"><source src="clips/new-60jahre.webm" type="video/webm"></video></div>
   <div>
     <span class="eyebrow">Markenstory <span class="badge">NEU</span></span>
     <h2 class="t">Seite «60 Jahre»</h2>
@@ -148,11 +148,11 @@
       <li>Adressiert direkt den Lehrlingsmangel</li>
     </ul>
   </div>
-  <div><video src="clips/new-jobs.webm" autoplay muted loop playsinline></video></div>
+  <div><video autoplay muted loop playsinline preload="auto"><source src="clips/new-jobs.mp4" type="video/mp4"><source src="clips/new-jobs.webm" type="video/webm"></video></div>
 </div></div></section>
 
 <section class="block"><div class="wrap reveal"><div class="split rev">
-  <div><video src="clips/new-projekte.webm" autoplay muted loop playsinline></video></div>
+  <div><video autoplay muted loop playsinline preload="auto"><source src="clips/new-projekte.mp4" type="video/mp4"><source src="clips/new-projekte.webm" type="video/webm"></video></div>
   <div>
     <span class="eyebrow">Referenzen <span class="badge">NEU</span></span>
     <h2 class="t">Projekte & Cases</h2>
@@ -175,7 +175,7 @@
       <li>Geschichte «von 1967 bis heute» schafft Vertrauen</li>
     </ul>
   </div>
-  <div><video src="clips/new-ueberuns.webm" autoplay muted loop playsinline></video></div>
+  <div><video autoplay muted loop playsinline preload="auto"><source src="clips/new-ueberuns.mp4" type="video/mp4"><source src="clips/new-ueberuns.webm" type="video/webm"></video></div>
 </div></div></section>
 
 <section class="block" id="vergleich"><div class="wrap reveal">
@@ -200,5 +200,7 @@
 <script>
   const io = new IntersectionObserver((es)=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }), {threshold:.12});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  function play(){document.querySelectorAll('video').forEach(v=>{v.muted=true;const p=v.play();if(p)p.catch(()=>{});});}
+  play(); document.addEventListener('click',play,{once:true}); window.addEventListener('scroll',play,{once:true});
 </script>
 </body></html>
